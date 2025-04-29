@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  .app {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .title {
+    color: #333;
+  }
+  
+  .filters {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .types {
+    margin-top: 10px;
+  }
+  
+  .type {
+    display: inline-block;
+    margin: 2px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+  }
+  
+  .type.fire { background-color: #f08030; }
+  .type.water { background-color: #6890f0; }
+  .type.grass { background-color: #78c850; }
+  .type.electric { background-color: #f8d030; }
+  .type.ice { background-color: #98d8d8; }
+  .type.fighting { background-color: #c03028; }
+  .type.poison { background-color: #a040a0; }
+  .type.ground { background-color: #e0c068; }
+  .type.flying { background-color: #a890f0; }
+  .type.psychic { background-color: #f85888; }
+  .type.bug { background-color: #a8b820; }
+  .type.rock { background-color: #b8a038; }
+  .type.ghost { background-color: #705898; }
+  .type.dark { background-color: #705848; }
+  .type.steel { background-color: #b8b8d0; }
+  .type.dragon { background-color: #7038f8; }
+  .type.fairy { background-color: #ee99ac; }
+  .type.normal { background-color: #a8a878; }
+  
+  .loader, .empty, .error {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+  

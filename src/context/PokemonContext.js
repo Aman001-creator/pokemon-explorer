@@ -13,21 +13,48 @@ export const PokemonProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
+  // Fetch detailed data for each Pokémon
+  const fetchPokemonDetails = async (pokemon) => {
+    try {
+      const res = await axios.get(pokemon.url);
+      const details = res.data;
+      
+      // Include stats, abilities, moves, and evolution chain
+      const detailedPokemon = {
+        ...pokemon,
+        id: details.id,
+        name: details.name,
+        image: details.sprites.front_default,
+        types: details.types.map(t => t.type.name),
+        stats: details.stats.map(stat => ({
+          name: stat.stat.name,
+          base_stat: stat.base_stat,
+        })),
+        abilities: details.abilities.map(ability => ({
+          name: ability.ability.name,
+          is_hidden: ability.is_hidden,
+        })),
+        moves: details.moves.map(move => move.move.name),
+        evolutionChainUrl: details.species.url,
+      };
+      return detailedPokemon;
+    } catch (err) {
+      console.error("Error fetching Pokémon details:", err);
+      return null;
+    }
+  };
+
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=150');
         const results = response.data.results;
 
+        // Fetch details for each Pokémon in the list
         const pokemonData = await Promise.all(
           results.map(async (pokemon) => {
-            const res = await axios.get(pokemon.url);
-            return {
-              id: res.data.id,
-              name: res.data.name,
-              image: res.data.sprites.front_default,
-              types: res.data.types.map(t => t.type.name),
-            };
+            const detailedPokemon = await fetchPokemonDetails(pokemon);
+            return detailedPokemon;
           })
         );
         

@@ -129,3 +129,25 @@ div {
 div[style*="display: flex"] {
   gap: 20px; /* Optional: adds some space between the sort and filter dropdowns */
 }
+
+.pokemon-detail {
+  text-align: center;
+}
+
+.pokemon-detail img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.pokemon-detail h2 {
+  margin-top: 20px;
+}
+
+.pokemon-detail ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pokemon-detail ul li {
+  margin: 5px 0;
+}

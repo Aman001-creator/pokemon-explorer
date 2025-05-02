@@ -8,6 +8,7 @@ const Navbar = () => {
       <div className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/favorites">Favorites</Link>
+        <Link to="/compare">Compare Pokémon</Link>
       </div>
     </nav>
   );

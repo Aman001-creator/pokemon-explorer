@@ -40,9 +40,12 @@ const PokemonDetailPage = () => {
   }
 
   return (
-    <div className="pokemon-detail">
+  <div className="pokemon-detail">
+    <div className="pokemon-left">
       <h1>{pokemon.name}</h1>
       <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+    </div>
+    <div className="pokemon-right">
       <div className="stats">
         <h2>Stats</h2>
         <ul>
@@ -71,20 +74,18 @@ const PokemonDetailPage = () => {
       </div>
       <div className="evolution">
         <h2>Evolution Chain</h2>
-        {evolutionChain ? (
-          <ul>
-            {evolutionChain.chain.evolves_to.map(evolution => (
-              <li key={evolution.species.name}>
-                <a href={`/pokemon/${evolution.species.name}`}>{evolution.species.name}</a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>Loading evolution chain...</p>
-        )}
+        <ul>
+          {evolutionChain.chain.evolves_to.map(evolution => (
+            <li key={evolution.species.name}>
+              <a href={`/pokemon/${evolution.species.name}`}>{evolution.species.name}</a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default PokemonDetailPage;

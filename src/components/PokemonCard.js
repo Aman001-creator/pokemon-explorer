@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePokemonContext } from '../context/PokemonContext';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 
 const PokemonCard = ({ pokemon }) => {
   const { toggleFavorite, favorites } = usePokemonContext();
@@ -15,11 +15,12 @@ const PokemonCard = ({ pokemon }) => {
           <span key={type} className={`type ${type}`}>{type}</span>
         ))}
       </div>
-      <button onClick={() => toggleFavorite(pokemon)}>
-        {isFavorite ? '❤️ Remove Favorite' : '🤍 Add Favorite'}
+      <div className='group-btn'>
+      <button className='favorite-btn' onClick={() => toggleFavorite(pokemon)}>
+        {isFavorite ? '❤️' : '🤍'}
       </button>
-      {/* Add Link to navigate to the detail page */}
-      <Link to={`/pokemon/${pokemon.id}`}>View Details</Link>
+      <button><Link style={{textDecoration:'none',color:'white'}} to={`/pokemon/${pokemon.id}`}>Card Detail</Link></button>
+      </div>
     </div>
   );
 };

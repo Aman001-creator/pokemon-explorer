@@ -11,15 +11,15 @@ const HomePage = () => {
   const [filteredList, setFilteredList] = useState(pokemonList); // Local filtered state
   const [sortedList, setSortedList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(20);
   const [sortOption, setSortOption] = useState('');
 
-  // Apply filters — triggered from <Filters />
+
   const handleFilter = (newFilteredList) => {
     setFilteredList(newFilteredList);
   };
 
-  // Apply sorting when sortOption or filteredList changes
+  
   useEffect(() => {
     let sorted = [...filteredList];
 
@@ -41,7 +41,7 @@ const HomePage = () => {
     }
 
     setSortedList(sorted);
-    setCurrentPage(1); // Reset pagination
+    setCurrentPage(1); 
   }, [sortOption, filteredList]);
 
   const paginatedList = useMemo(() => {
@@ -55,7 +55,7 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <div className="filter-sort-bar" style={{ display: 'flex', justifyContent: 'space-between', margin: '20px' }}>
+      <div className="filter-sort-bar" style={{ display: 'flex', justifyContent: 'center', margin: '20px' }}>
         <Filters setFilteredList={handleFilter} />
         <Sort sortOption={sortOption} setSortOption={setSortOption} />
       </div>

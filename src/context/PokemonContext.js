@@ -13,13 +13,13 @@ export const PokemonProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  // Fetch detailed data for each Pokémon
+
   const fetchPokemonDetails = async (pokemon) => {
     try {
       const res = await axios.get(pokemon.url);
       const details = res.data;
       
-      // Include stats, abilities, moves, and evolution chain
+
       const detailedPokemon = {
         ...pokemon,
         id: details.id,

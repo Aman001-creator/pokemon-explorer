@@ -54,28 +54,25 @@ const PokemonCompare = () => {
 
   return (
     <div>
-      <h2>Compare Two Pokémon</h2>
+      <h2 style={{ backgroundColor: 'white',padding:'20px',textAlign: 'center' }}>Compare Two Pokémon</h2>
 
-      <div>
+      <div className='compare-form'>
         <input
           value={pokemon1}
           onChange={e => setPokemon1(e.target.value)}
           placeholder="First Pokémon name"
         />
-        <button onClick={fetchRandom1}>🎲 Random 1</button>
-      </div>
+        <button className="random-btn" onClick={fetchRandom1}>🎲</button>
 
-      <div>
         <input
           value={pokemon2}
           onChange={e => setPokemon2(e.target.value)}
           placeholder="Second Pokémon name"
         />
-        <button onClick={fetchRandom2}>🎲 Random 2</button>
+        <button className="random-btn" onClick={fetchRandom2}>🎲</button>
+      <button  onClick={fetchData}>Compare</button>
       </div>
-
-      <button onClick={fetchData}>Compare</button>
-
+      
       {data1 && data2 && (
         <div>
           <h3>Stats Comparison: {data1.name} vs {data2.name}</h3>
